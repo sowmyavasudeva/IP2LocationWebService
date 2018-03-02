@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://com" xmlns:intf="http://com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="IP2LocationRequest">
+    <complexType/>
+   </element>
+   <element name="IP2LocationRequestResponse">
+    <complexType>
+     <sequence>
+      <element name="IP2LocationRequestReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="IP2LocationRequestRequest">
+
+      <wsdl:part element="impl:IP2LocationRequest" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="IP2LocationRequestResponse">
+
+      <wsdl:part element="impl:IP2LocationRequestResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="getLocation">
+
+      <wsdl:operation name="IP2LocationRequest">
+
+         <wsdl:input message="impl:IP2LocationRequestRequest" name="IP2LocationRequestRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:IP2LocationRequestResponse" name="IP2LocationRequestResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="getLocationSoapBinding" type="impl:getLocation">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="IP2LocationRequest">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="IP2LocationRequestRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="IP2LocationRequestResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="getLocationService">
+
+      <wsdl:port binding="impl:getLocationSoapBinding" name="getLocation">
+
+         <wsdlsoap:address location="http://localhost:8080/IPToLocation/services/getLocation"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
